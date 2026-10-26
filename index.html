@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Bhai ❤️</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  text-align: center;
+  color: #762842;
+  background: linear-gradient(135deg, #fff0f4, #f3d4e0, #fff5e8);
+}
+
+header { padding: 40px 18px 20px; }
+
+h1 {
+  color: #a12f57;
+  font-size: clamp(34px, 8vw, 52px);
+}
+
+.card {
+  width: 90%;
+  max-width: 700px;
+  margin: 22px auto;
+  padding: 25px;
+  border-radius: 24px;
+  background: #ffffffd9;
+  box-shadow: 0 8px 25px #8b34501c;
+}
+
+.message {
+  white-space: pre-line;
+  line-height: 1.9;
+  font-size: 17px;
+}
+
+h2 { color: #a12f57; }
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.main-button {
+  border: none;
+  border-radius: 30px;
+  background: #a12f57;
+  color: white;
+  padding: 14px 22px;
+  margin: 10px 5px;
+  font-size: 16px;
+}
+
+.main-button:hover { background: #7d2041; }
+
+#memorySurprise, #secretLetter {
+  display: none;
+  margin-top: 25px;
+  animation: appear .6s ease;
+}
+
+#memoryPhoto {
+  width: 100%;
+  max-width: 450px;
+  max-height: 55vh;
+  object-fit: contain;
+  border: 5px solid white;
+  border-radius: 18px;
+  box-shadow: 0 5px 20px #8b345033;
+}
+
+#memoryCaption {
+  font-style: italic;
+  line-height: 1.7;
+}
+
+#memoryCounter {
+  font-size: 14px;
+  color: #9d5570;
+}
+
+#secretLetter {
+  white-space: pre-line;
+  line-height: 1.9;
+  padding: 10px;
+}
+
+footer {
+  padding: 20px 12px 35px;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  z-index: 5;
+  animation: floatUp 7s linear forwards;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Happy Birthday, Bhai! ❤️🎂</h1>
+  <p><i>To my forever favourite person 🫂</i></p>
+</header>
+
+<!-- BIRTHDAY MESSAGE -->
+<section class="card">
+  <div class="message">Happy Birthday to my forever favourite person! ❤️🎂
+
+I’m so proud of the person you’ve become and everything you’ve achieved. Being the first surgeon in our family is such a special thing, and watching you build your own journey makes me prouder than I can explain.
+
+No matter how grown up we get, I’ll always be your little sister. I might not say it all the time, but I miss you, I’m always rooting for you, and I’ll forever be grateful to have you by my side.
+
+Love you loads, bhai. Don’t ever change. ❤️🫂</div>
+</section>
+
+<!-- PHOTO SURPRISE -->
+<section class="card">
+  <h2>Our Little Memories 📸💕</h2>
+  <p>Ten memories, one special bond. Ready, Bhai? 🥹</p>
+
+  <button class="main-button" onclick="startMemories()">
+    Open Our Little Memories 💕
+  </button>
+
+  <div id="memorySurprise">
+    <img id="memoryPhoto" src="photo1.jpg" alt="Our memory">
+
+    <h3 id="memoryTitle">Memory 1 ❤️</h3>
+    <p id="memoryCaption">My favourite person ❤️</p>
+    <p id="memoryCounter">1 of 10</p>
+
+    <button class="main-button" id="backButton"
+      onclick="previousMemory()">❮ Back</button>
+
+    <button class="main-button" id="nextButton"
+      onclick="nextMemory()">Next Memory ❯</button>
+
+    <p id="memoryEnd" style="display:none; line-height:1.8;">
+      That's all ten memories! 🥹❤️
+      <br>But wait... one last surprise is waiting below. 💌
+    </p>
+  </div>
+</section>
+
+<!-- SECRET LETTER -->
+<section class="card">
+  <h2>A Little Secret for You 💌</h2>
+  <p>Something from your little sister's heart...</p>
+
+  <button class="main-button" onclick="toggleLetter()">
+    Open Your Secret Letter 💌
+  </button>
+
+  <div id="secretLetter">Dear Bhai ❤️,
+
+Happy Birthday to my forever favourite person! 🎂
+
+Seven years older, always acting like my second dad, and somehow still finding ways to spoil me. 😂❤️
+
+I am so proud of you and everything you have achieved. Being the first surgeon in our family is something truly special, and I hope you know how much we admire you.
+
+Even when we don't say it every day, you mean the world to me. I miss you, I am always cheering for you, and no distance will ever change the bond we share.
+
+Thank you for protecting me, guiding me, making me laugh, and being my Bhai.
+
+No matter how old we get, I will always be your little sister. ❤️
+
+May this new year of your life bring you endless happiness, success, love, and beautiful memories.
+
+Love you loads, Bhai.
+Forever your little sister. ❤️🫂🎂
+
+P.S. You can never escape me. You're stuck with me forever! 😂💕</div>
+</section>
+
+<footer>
+  Made with endless love, just for you ❤️
+  <p>Forever your little sister 🫶</p>
+</footer>
+
+<script>
+const memories = [
+  { file: "photo1.jpeg", caption: "My forever favourite person ❤️" },
+  { file: "photo2.jpeg", caption: "One of our sweetest memories 🫂" },
+  { file: "photo3.jpeg", caption: "My built-in protector 💕" },
+  { file: "photo4.jpeg", caption: "The Bhai I am always proud of 🥹" },
+  { file: "photo5.jpeg", caption: "A memory worth keeping forever 📸" },
+  { file: "photo6.jpeg", caption: "You make life more special ❤️" },
+  { file: "photo7.jpeg", caption: "Lucky to call you my Bhai 🫶" },
+  { file: "photo8.jpeg", caption: "My favourite kind of chaos 😂💕" },
+  { file: "photo9.jpeg", caption: "No bond like ours ❤️" },
+  { file: "photo10.jpeg", caption: "Happy Birthday, Bhai! 🎂🥹" }
+];
+
+let current = 0;
+
+function startMemories() {
+  document.getElementById("memorySurprise").style.display = "block";
+  current = 0;
+  showMemory();
+  document.getElementById("memorySurprise").scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+
+function showMemory() {
+  const memory = memories[current];
+  const photo = document.getElementById("memoryPhoto");
+
+  photo.style.animation = "none";
+  void photo.offsetWidth;
+  photo.style.animation = "appear .5s ease";
+
+  photo.src = memory.file;
+  photo.alt = memory.caption;
+
+  document.getElementById("memoryTitle").textContent =
+    "Memory " + (current + 1) + " ❤️";
+
+  document.getElementById("memoryCaption").textContent =
+    memory.caption;
+
+  document.getElementById("memoryCounter").textContent =
+    (current + 1) + " of " + memories.length;
+
+  document.getElementById("backButton").style.display =
+    current === 0 ? "none" : "inline-block";
+
+  document.getElementById("nextButton").textContent =
+    current === memories.length - 1 ? "Finish Memories ❤️" : "Next Memory ❯";
+
+  document.getElementById("memoryEnd").style.display = "none";
+}
+
+function nextMemory() {
+  if (current < memories.length - 1) {
+    current++;
+    showMemory();
+  } else {
+    document.getElementById("memoryEnd").style.display = "block";
+    document.getElementById("nextButton").style.display = "none";
+    document.getElementById("memoryEnd").scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }
+}
+
+function previousMemory() {
+  if (current > 0) {
+    current--;
+    document.getElementById("nextButton").style.display = "inline-block";
+    showMemory();
+  }
+}
+
+function toggleLetter() {
+  const letter = document.getElementById("secretLetter");
+  const isOpen = letter.style.display === "block";
+
+  letter.style.display = isOpen ? "none" : "block";
+
+  if (!isOpen) {
+    letter.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+}
+
+/* Floating hearts ❤️ */
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.textContent = ["❤️", "💕", "💗", "💖", "🫶"][
+    Math.floor(Math.random() * 5)
+  ];
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (16 + Math.random() * 18) + "px";
+
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 7000);
+}, 700);
+</script>
+
+</body>
+</html>
